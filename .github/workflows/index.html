@@ -20,6 +20,48 @@
         .policy-section {
             border-left: 4px solid #ef4444; /* Red 500 border */
         }
+        /* Custom styling for the details/summary elements */
+        details {
+            border-radius: 0.5rem; /* Rounded-lg */
+            overflow: hidden;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1), 0 2px 4px -2px rgba(239, 68, 68, 0.06);
+        }
+        summary {
+            list-style: none; /* Hide default triangle */
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            background-color: #1f2937; /* Gray 800 */
+            color: #f87171; /* Red 400 */
+            font-size: 1.25rem; /* Text-xl */
+            font-weight: 600; /* Font-semibold */
+            transition: background-color 0.15s ease-in-out;
+            position: relative;
+        }
+        summary:hover {
+            background-color: #374151; /* Gray 700 */
+        }
+        /* Custom indicator for the details arrow */
+        summary::before {
+            content: "+";
+            position: absolute;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: transform 0.2s ease-in-out;
+        }
+        details[open] > summary::before {
+            content: "-";
+            transform: rotate(0deg);
+        }
+        .details-content {
+            padding: 1rem 1.5rem;
+            background-color: #1f2937; /* Gray 800 */
+            border-top: 1px solid #dc2626; /* Red 600 subtle divider */
+        }
+        .details-content p, .details-content ul {
+            padding-top: 0.5rem;
+        }
     </style>
 </head>
 <body class="min-h-screen p-4 sm:p-8 text-gray-100">
@@ -29,113 +71,263 @@
         <!-- Header -->
         <header class="text-center mb-12 px-6">
             <h1 class="text-6xl sm:text-7xl font-extrabold spooky-title">MELEPER</h1>
-            <p class="text-xl sm:text-2xl mt-2 font-light text-gray-400">The Boring-But-Important Rules for My VR Horror Game! (By Case)</p>
+            <p class="text-xl sm:text-2xl mt-2 font-light text-gray-400">The Boring-But-Important Rules for My **Co-op** VR Horror Game! (By Case)</p>
         </header>
 
         <!-- Main Content Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 px-6 sm:px-10">
 
-            <!-- Privacy Policy Section -->
+            <!-- Privacy Policy Section 1 -->
             <section class="policy-section p-6 rounded-lg bg-gray-800/50">
-                <h2 class="text-3xl font-bold mb-4 text-red-400">1. Privacy Policy (AKA: I'm not a creep)</h2>
+                <h2 class="text-3xl font-bold mb-6 text-red-400">1. Privacy Policy (AKA: I'm not a creep)</h2>
                 <p class="mb-4 text-sm text-gray-300">Last Updated: November 2025 (I wrote this!)</p>
 
-                <!-- 1.1 Data Collection -->
-                <div class="mb-6">
-                    <h3 class="text-xl font-semibold mb-2 text-red-300">1.1 What I DO NOT Collect (I swear!)</h3>
-                    <p class="text-gray-200">
-                        The Meleper VR game is too busy being scary to steal your stuff. <strong class="text-red-300">I promise I don't collect your Personal Information</strong>.
-                        This means <strong class="text-red-300">I</strong> don't ask for or store your name, email address, age, phone number, or where you live. That's just creepy, and I'm a good person!
-                    </p>
-                    <ul class="list-disc list-inside mt-2 ml-4 text-sm text-gray-400">
-                        <li><strong class="text-red-300">I</strong> don't track you outside of the game.</li>
-                        <li><strong class="text-red-300">I</strong> don't have any data to share with anyone!</li>
-                    </ul>
-                </div>
+                <!-- 1.1 What I DO NOT Collect -->
+                <details>
+                    <summary>1.1 What I DO NOT Collect (I swear!)</summary>
+                    <div class="details-content">
+                        <p class="text-gray-200">
+                            The Meleper VR game is too busy being scary to steal your stuff. <strong class="text-red-300">I promise I don't collect your Personal Information</strong>.
+                            This means <strong class="text-red-300">I</strong> don't ask for or store your name, email address, age, phone number, or where you live. That's just creepy, and I'm a good person!
+                        </p>
+                        <ul class="list-disc list-inside mt-2 ml-4 text-sm text-gray-400">
+                            <li><strong class="text-red-300">I</strong> don't track you outside of the game.</li>
+                            <li><strong class="text-red-300">I</strong> don't have any data to share with anyone!</li>
+                        </ul>
+                    </div>
+                </details>
 
                 <!-- 1.2 Non-Personal Data (VR/Game Data) -->
-                <div class="mb-6">
-                    <h3 class="text-xl font-semibold mb-2 text-red-300">1.2 Game Data (Boring Stuff)</h3>
-                    <p class="text-gray-200">
-                        The game only saves boring stuff that helps it work, like your high score, what level you're on, or maybe if you turned the volume down because you got too scared. This info is saved right <strong class="text-red-300">ON YOUR VR HEADSET</strong>. It is not sent to me. It just helps the game remember where you were.
-                    </p>
-                </div>
+                <details>
+                    <summary>1.2 Game Data (Boring Stuff)</summary>
+                    <div class="details-content">
+                        <p class="text-gray-200">
+                            The game only saves boring stuff that helps it work, like your high score, what level you're on, or maybe if you turned the volume down because you got too scared. For **co-op games**, some of this data (like which player is the monster!) is saved on the <strong class="text-red-300">game server</strong> while you play. But it’s still just game stuff, not your private stuff.
+                        </p>
+                    </div>
+                </details>
 
                 <!-- 1.3 Third-Party Services (PlayFab) -->
-                <div class="mb-6">
-                    <h3 class="text-xl font-semibold mb-2 text-red-300">1.3 The Super-Secret Server Stuff (PlayFab)</h3>
-                    <p class="text-gray-200">
-                        Meleper uses stuff like PlayFab (backend services) to run the game and save player data securely. These services require technical info, like your device's **IP address**, just so your headset can talk to the game server.
-                    </p>
-                    <p class="text-gray-200 mt-2">
-                        <strong class="text-red-300">Crucially, I (Case) do not access or store that super private stuff</strong> (like IP addresses or your real address) that the server sees. Why? Because I don't need it, it's illegal to look at, and I'm a good person! I only care about the anonymous game data.
-                    </p>
-                </div>
-
+                <details>
+                    <summary>1.3 The Super-Secret Server Stuff (PlayFab)</summary>
+                    <div class="details-content">
+                        <p class="text-gray-200">
+                            Meleper uses stuff like PlayFab (backend services) to run the game (it's how the monster finds the survivors!). For **co-op multiplayer**, these services need technical info, like your device's **IP address**, just so your headset can find the other players and connect to the game server.
+                        </p>
+                        <p class="text-gray-200 mt-2">
+                            **PlayFab *does* technically give me access to some of your personal info** (like IP addresses) because it needs it to make the game work. <strong class="text-red-300">But I choose NOT to look at it!</strong> Why? Because I would be uncomfortable if a random stranger knew where I lived, and I think it's wrong to look at yours! I only care about the anonymous game data.
+                        </p>
+                    </div>
+                </details>
 
                 <!-- 1.4 Safety for Younger Players (COPPA Note) -->
-                <div class="mb-6 p-3 bg-red-900/20 rounded">
-                    <h3 class="text-xl font-semibold mb-2 text-red-300">1.4 Kids Rule! (But still be careful)</h3>
-                    <p class="text-gray-200">
-                        Meleper is a horror game—it's scary, like really scary. If you are under 13, you need a grown-up (parent or guardian) to say it's okay for you to play. Since <strong class="text-red-300">I</strong> don't collect any personal info, I don't break any rules about kids online.
-                    </p>
-                </div>
+                <details>
+                    <summary>1.4 Rules for Young Explorers (If you're under 13)</summary>
+                    <div class="details-content bg-red-900/20">
+                        <p class="text-gray-200">
+                            Meleper is a horror game—it's scary, like really scary. If you are under 13, you need a grown-up (parent or guardian) to say it's okay for you to play. Since <strong class="text-red-300">I</strong> don't collect any personal info, I don't break any rules about kids online (called COPPA). You should always ask permission before downloading any games!
+                        </p>
+                    </div>
+                </details>
             </section>
 
-            <!-- Terms of Use Section -->
+            <!-- Terms of Use Section 2 -->
             <section class="policy-section p-6 rounded-lg bg-gray-800/50">
-                <h2 class="text-3xl font-bold mb-4 text-red-400">2. Terms of Use (AKA: Don't be a jerk)</h2>
+                <h2 class="text-3xl font-bold mb-6 text-red-400">2. Player and Creator Rules (The Fun Rules)</h2>
                 <p class="mb-4 text-sm text-gray-300">Effective Date: November 2025</p>
 
-                <!-- 2.1 Your Use -->
-                <div class="mb-6">
-                    <h3 class="text-xl font-semibold mb-2 text-red-300">2.1 Playing the Game</h3>
-                    <ul class="list-disc list-inside ml-4 text-gray-200">
-                        <li>Play the game for fun, not for selling or doing other business stuff.</li>
-                        <li>Do not try to cheat, hack, or use programs that give you an unfair advantage. That's lame.</li>
-                        <li>The game is "as is." I'm 11 and still learning, so if the monster glitches through the wall, sorry!</li>
-                    </ul>
-                </div>
+                <!-- 2.1 General Player Rules -->
+                <details open>
+                    <summary>2.1 General Player Rules (Just be cool)</summary>
+                    <div class="details-content">
+                        <ul class="list-disc list-inside ml-4 text-gray-200">
+                            <li>**Game Use:** Play the game for fun! Don't try to use it for big business stuff or selling it.</li>
+                            <li>**Bugs:** The game is "as is." I'm 11 and still learning, so if the monster glitches through the wall, it's a bug! Tell me about it (see contact info) but please don't get mad.</li>
+                        </ul>
+                    </div>
+                </details>
 
-                <!-- 2.2 Intellectual Property (Game Ownership & Videos) -->
-                <div class="mb-6">
-                    <h3 class="text-xl font-semibold mb-2 text-red-300">2.2 My Stuff and Your Videos</h3>
-                    <p class="text-gray-200 mb-2">
-                        <strong class="text-red-300">I, Case, the developer</strong> of Meleper, own all the spooky code, scary sounds, and art in the game. You are not allowed to copy or sell any part of the game without my permission. That's stealing!
-                    </p>
-                    <p class="text-gray-200">
-                        <strong class="text-red-300">Videos and Streaming:</strong> You are totally allowed to record videos, stream, and share gameplay of Meleper on YouTube or Twitch! Please do! But you must never claim that you created or developed the game. **I did!** Always give credit to Meleper and me (Case).
-                    </p>
-                </div>
+                <!-- 2.2 Awesome Creator Rules -->
+                <details>
+                    <summary>2.2 Awesome Creator Rules (For YouTubers/Streamers)</summary>
+                    <div class="details-content">
+                        <p class="text-gray-200 mb-2">
+                            <strong class="text-red-300">I, the developer</strong>, own all the spooky code, scary sounds, and art.
+                        </p>
+                        <ul class="list-disc list-inside ml-4 text-gray-200">
+                            <li>**Make Videos!** You are totally allowed to record videos, stream, and share gameplay of Meleper on YouTube or Twitch! Please do!</li>
+                            <li>**Give Credit:** You must never claim that you created or developed the game. **I did!** Always give credit to Meleper and me.</li>
+                            <li>**Monetization:** You can make money from your videos (like ads on YouTube) because I said so! You do not need to ask me.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- 2.3 Cheating and Forbidden Mods (UPDATED) -->
+                <details>
+                    <summary>2.3 Cheating and Forbidden Mods (SERIOUSLY, DON'T)</summary>
+                    <div class="details-content bg-red-900/20">
+                        <p class="text-gray-200">
+                            **No Cheating:** Do not try to cheat, hack, or use programs that give you an unfair advantage over the monster or the survivors. That is the lamest thing you can do!
+                        </p>
+                        <p class="text-gray-200 mt-2">
+                            <strong class="text-red-300">Strictly Prohibited Mods:</strong> You cannot make or use unauthorized mods, cheats, or anything that changes the official game rules. This is unfair to everyone else, and it's confusing. If I see illegal mods or cheats, I will ask the platform to shut it down, because I made this game to be fun and fair!
+                        </p>
+                    </div>
+                </details>
+
+                <!-- 2.4 NEW: Being Nice (No Jerks Allowed) -->
+                <details>
+                    <summary>2.4 Being Nice (No Jerks Allowed)</summary>
+                    <div class="details-content">
+                        <p class="text-gray-200">
+                            Meleper is a co-op game, and we're all playing together (even the monster!). Please use common sense:
+                        </p>
+                        <ul class="list-disc list-inside ml-4 text-gray-200">
+                            <li>**Be Respectful:** Don't say mean or rude things to other players. No one likes a bully, especially in a spooky game.</li>
+                            <li>**No Harassment:** Don't chase people around just to be annoying if they aren't having fun.</li>
+                            <li>**Use the Mute Button:** If someone is being rude, just mute them and tell me about it!</li>
+                        </ul>
+                    </div>
+                </details>
                 
-                <!-- 2.3 Safety Tips -->
-                <div class="mb-6">
-                    <h3 class="text-xl font-semibold mb-2 text-red-300">2.3 Safety Tips from the Dev</h3>
-                    <p class="text-gray-200">
-                        Okay, real talk: Meleper can be seriously spooky. If you get scared easily (like, if you jump when a cat meows), maybe don't play alone in the dark! Play with friends or in a public place so you have someone to scream with. I'm just trying to help you stay safe (and maybe share the jumpscares).
-                    </p>
-                </div>
+                <!-- 2.5 Safety Tips (Old 2.4) -->
+                <details>
+                    <summary>2.5 Safety Tips from the Dev</summary>
+                    <div class="details-content">
+                        <p class="text-gray-200">
+                            Okay, real talk: Meleper can be seriously spooky. If you get scared easily (like, if you jump when a cat meows), maybe don't play alone in the dark! Play with friends or in a public place so you have someone to scream with. I'm just trying to help you stay safe (and maybe share the jumpscares).
+                        </p>
+                    </div>
+                </details>
 
-                <!-- 2.4 Contact -->
-                <div class="mb-6">
-                    <h3 class="text-xl font-semibold mb-2 text-red-300">2.4 How to Contact Me (If you found a crazy bug or just want to say 'hi')</h3>
-                    <p class="text-gray-200 mb-3">
-                        If you have questions about these policies or the game, you can contact <strong class="text-red-300">me (Case)</strong> directly:
-                    </p>
-                    <ul class="list-disc list-inside ml-4 text-gray-200">
-                        <li>
-                            <strong class="text-red-300">Email (I check this!):</strong> 
-                            <a href="mailto:casewhaley541@gmail.com" class="text-red-400 hover:text-red-300 underline transition duration-150">casewhaley541@gmail.com</a>
-                        </li>
-                        <li>
-                            <strong class="text-red-300">Discord Server (The best place for help!):</strong> 
-                            <a href="https://discord.gg/WR5BBuC8X8" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:text-red-300 underline transition duration-150">Join the Meleper Discord</a>
-                        </li>
-                    </ul>
-                </div>
-
+                <!-- 2.6 Contact (Old 2.5) -->
+                <details>
+                    <summary>2.6 How to Contact Me (If you found a crazy bug or just want to say 'hi')</summary>
+                    <div class="details-content">
+                        <p class="text-gray-200 mb-3">
+                            If you have questions about these policies or the game, you can contact <strong class="text-red-300">me</strong> directly:
+                        </p>
+                        <ul class="list-disc list-inside ml-4 text-gray-200">
+                            <li>
+                                <strong class="text-red-300">Email (I check this!):</strong> 
+                                <a href="mailto:casewhaley541@gmail.com" class="text-red-400 hover:text-red-300 underline transition duration-150">casewhaley541@gmail.com</a>
+                            </li>
+                            <li>
+                                <strong class="text-red-300">Discord Server (The best place for help!):</strong> 
+                                <a href="https://discord.gg/WR5BBuC8X8" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:text-red-300 underline transition duration-150">Join the Meleper Discord</a>
+                            </li>
+                        </ul>
+                    </div>
+                </details>
             </section>
         </div>
+
+        <!-- Section 3: The Grown-Up Section (Important Stuff for Parents) -->
+        <section class="max-w-4xl mx-auto px-6 sm:px-10 mt-8">
+            <h2 class="text-3xl font-bold mb-6 text-red-400">3. The Grown-Up Section (Important Stuff for Parents)</h2>
+
+            <!-- 3.1 Can My Kid Play This Scary Game? (UPDATED/FOCUSED) -->
+            <details open>
+                <summary>3.1 Can My Kid Play This Scary Game? (Is it okay?)</summary>
+                <div class="details-content bg-red-900/20">
+                    <p class="text-gray-200 mb-2">
+                        Hi Grown-Ups! This section is just for you. Please read this if you have questions about content and age!
+                    </p>
+                    <ul class="list-disc list-inside ml-4 text-gray-200">
+                        <li>**Horror Content:** Meleper is a VR horror game. It has jumpscares, creepy sounds, and can be intense. Please make sure your child is comfortable with this type of content and is within the recommended age range for the VR headset (usually 12+ or 13+).</li>
+                        <li>**No Private Data:** I confirm that **I do not collect or store** any personal information about players (names, emails, etc.).</li>
+                        <li>**Supervision:** Since it's online co-op, players talk to each other. Please supervise their online interactions to make sure everyone is being nice!</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- 3.2 Money, Refunds, and Other Grown-Up Things -->
+            <details>
+                <summary>3.2 Money, Refunds, and Other Grown-Up Things</summary>
+                <div class="details-content">
+                    <ul class="list-disc list-inside ml-4 text-gray-200">
+                        <li>**Spending Money:** If I ever add stuff you can buy in the game (like a cool new monster skin), I will make sure the platform (like Meta/Steam) requires a password or something official so your kid doesn't accidentally buy 100 things.</li>
+                        <li>**Refunds:** Any requests for refunds for the game or any in-game purchases have to go through the platform you bought the game on (like the Oculus Store or Steam). I don't handle that part!</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- 3.3 The "I'm Not Responsible" Bit (The Legal Stuff) -->
+            <details>
+                <summary>3.3 The "I'm Not Responsible" Bit (The Legal Stuff)</summary>
+                <div class="details-content bg-red-900/20">
+                    <p class="text-gray-200">
+                        This is the part where the grown-ups need to read the long words! Basically, I'm just a kid making a game, not a big company.
+                    </p>
+                    <p class="text-gray-200 mt-2">
+                        <strong class="text-red-300">I am not responsible</strong> for any problems with your headset, your internet breaking, or your computer exploding (that won't happen, promise!). You play Meleper at your own risk. The game is provided "AS IS" without any warranties, which means I can't promise it will never crash or break, but I'll try my best to fix it!
+                    </p>
+                </div>
+            </details>
+        </section>
+
+        <!-- NEW Section 4: Self-Assessment Tabs (Should YOU Play?) -->
+        <section class="max-w-4xl mx-auto px-6 sm:px-10 mt-8">
+            <h2 class="text-3xl font-bold mb-6 text-red-400">4. Quick Check! Should YOU Play? (Fun Self-Assessment)</h2>
+            
+            <!-- 4.1 Jump Scares Check -->
+            <details>
+                <summary>4.1 Can You Handle Jump Scares?</summary>
+                <div class="details-content">
+                    <p class="text-gray-200 mb-2">
+                        This game is meant to make you jump! If you think you might throw your headset across the room, maybe start with a less scary game.
+                    </p>
+                    <ul class="list-disc list-inside ml-4 text-gray-200">
+                        <li>**If you like being scared:** YES, come on in!</li>
+                        <li>**If you cry when you see a shadow:** Maybe play with the volume down low first, or bring a friend!</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- 4.2 Co-op/Monster Check -->
+            <details>
+                <summary>4.2 Are You Okay Fighting a Monster?</summary>
+                <div class="details-content">
+                    <p class="text-gray-200 mb-2">
+                        Meleper is co-op! Sometimes you are running from the monster, and sometimes YOU ARE THE MONSTER!
+                    </p>
+                    <ul class="list-disc list-inside ml-4 text-gray-200">
+                        <li>**If you don't like losing:** You will lose sometimes. It's part of the fun!</li>
+                        <li>**If you love teamwork:** You'll need to talk to your survivor friends to win. Be a good teammate!</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- 4.3 VR Safety Check -->
+            <details>
+                <summary>4.3 Are You Safe in Virtual Reality?</summary>
+                <div class="details-content bg-red-900/20">
+                    <p class="text-gray-200 mb-2">
+                        Safety first! It's VR, so don't hit your TV!
+                    </p>
+                    <ul class="list-disc list-inside ml-4 text-gray-200">
+                        <li>**Did you clear your room?** Make sure you have lots of space to swing your arms without hitting your lamp.</li>
+                        <li>**Are you standing on a rug?** A soft rug helps you know where you are in real life without taking off the headset.</li>
+                        <li>**Listen to the Guardian:** If your VR system tells you to stop, STOP! I don't want you to get hurt.</li>
+                    </ul>
+                </div>
+            </details>
+            
+            <!-- 4.4 Headset Check (Friendly Reminder) -->
+            <details>
+                <summary>4.4 Is Your Headset Charged? (Don't run out of battery!)</summary>
+                <div class="details-content">
+                    <p class="text-gray-200">
+                        Nothing is scarier than running away from the monster and then the screen goes dark because your battery died!
+                    </p>
+                    <p class="text-gray-200 mt-2">
+                        **Pro Tip:** Always check your battery is at least 50% before starting a game of Meleper. Losing to the monster is okay, but losing to the battery is just sad.
+                    </p>
+                </div>
+            </details>
+
+        </section>
+
 
         <!-- Footer -->
         <footer class="text-center mt-12 pt-6 border-t border-red-900/50 px-6">
