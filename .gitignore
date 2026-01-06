@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meleper VR Horror Game - Rules & Stuff</title>
+    <title>Meleper - Rules & Stuff</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -44,7 +44,7 @@
                 <div class="mb-6">
                     <h3 class="text-xl font-semibold mb-2 text-red-300">1.1 What I DO NOT Collect (I swear!)</h3>
                     <p class="text-gray-200">
-                        The Meleper VR game is too busy being scary to steal your stuff. <strong class="text-red-300">I promise I don't collect your Personal Information</strong>.
+                        Meleper is too busy being scary to steal your stuff. <strong class="text-red-300">I promise I don't collect your Personal Information</strong>.
                         This means <strong class="text-red-300">I</strong> don't ask for or store your name, email address, age, phone number, or where you live. That's just creepy, and I'm a good person!
                     </p>
                     <ul class="list-disc list-inside mt-2 ml-4 text-sm text-gray-400">
@@ -112,7 +112,7 @@
                 <div class="mb-6">
                     <h3 class="text-xl font-semibold mb-2 text-red-300">2.3 Safety Tips from the Dev</h3>
                     <p class="text-gray-200">
-                        Okay, real talk: Meleper can be seriously spooky. If you get scared easily (like, if you jump when a cat meows), maybe don't play alone in the dark! Play with friends or in a public place so you have someone to scream with. I'm just trying to help you stay safe (and maybe share the jumpscares).
+                        Okay, real talk: Meleper can be seriously spooky. If you get scared easily (like, if you piss yourself in granny), maybe don't play alone in the dark! Play with friends or in a public lobby so you have someone to scream with. I'm just trying to help you stay safe (and maybe share the agony of refdoll killing you).
                     </p>
                 </div>
 
@@ -139,7 +139,7 @@
 
         <!-- Footer -->
         <footer class="text-center mt-12 pt-6 border-t border-red-900/50 px-6">
-            <p class="text-sm text-gray-500">&copy; 2025 Meleper VR Game. All Rights Reserved.</p>
+            <p class="text-sm text-gray-500">&copy; 2026 Meleper All Rights Reserved.</p>
         </footer>
 
     </div>
